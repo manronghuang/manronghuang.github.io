@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannah Huang | Global AI Talent Partner & Life Explorer</title>
+    <!-- 回退到官方 Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.staticfile.net/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- 使用 Google Fonts 国内镜像 -->
+    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', 'Noto Serif SC', sans-serif;
+            background-color: #fdfcf8;
+            color: #2c2c2c;
+            scroll-behavior: smooth;
+        }
+        .font-serif-sc {
+            font-family: 'Noto Serif SC', serif;
+        }
+        /* 头像动效 */
+        .avatar-blob {
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            transition: all 0.5s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .avatar-blob:hover {
+            border-radius: 50%;
+            transform: scale(1.02);
+        }
+        /* 卡片悬停 */
+        .hover-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .hover-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        /* 玻璃质感标签 */
+        .glass-tag {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        /* 隐藏滚动条 */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* 拍立得效果 */
+        .polaroid {
+            background: #fff;
+            padding: 10px 10px 30px 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .polaroid:hover {
+            transform: scale(1.02) rotate(-1deg);
+            z-index: 10;
+        }
+        /* 时间轴线 */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+        @media (min-width: 768px) {
+            .timeline-line {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-orange-100 selection:text-orange-900">
+
+    <!-- 导航 -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl font-bold font-serif-sc text-stone-800">Hannah.</span>
+                    <span class="hidden md:block text-xs text-stone-400 uppercase tracking-widest border-l border-stone-300 pl-2 ml-2">HR Expert & Life Lover</span>
+                </div>
+                <!-- 桌面端菜单 -->
+                <div class="hidden lg:flex space-x-6 text-sm font-medium text-stone-600">
+                    <a href="#about" class="hover:text-stone-900 hover:underline decoration-orange-300 underline-offset-4 transition-all">Profile</a>
+                    <a href="#journey" class="hover:text-stone-900 hover:underline decoration-orange-300 underline-offset-4 transition-all">Journey</a>
+                    <a href="#expertise" class="hover:text-stone-900 hover:underline decoration-orange-300 underline-offset-4 transition-all">Expertise</a>
+                    <a href="#sports" class="hover:text-stone-900 hover:underline decoration-green-300 underline-offset-4 transition-all">Sports</a>
+                    <a href="#travel" class="hover:text-stone-900 hover:underline decoration-blue-300 underline-offset-4 transition-all">Travel</a>
+                    <a href="#life" class="hover:text-stone-900 hover:underline decoration-purple-300 underline-offset-4 transition-all">Muse</a>
+                </div>
+                <button class="bg-stone-900 text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition duration-300 shadow-lg shadow-orange-600/20">
+                    Connect
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="about" class="pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-40 -mt-20 w-[500px] h-[500px] bg-orange-50 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
+        <div class="absolute bottom-0 left-0 -ml-40 -mb-20 w-[500px] h-[500px] bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <div class="mb-8 relative inline-block group">
+                <div class="w-40 h-40 sm:w-48 sm:h-48 avatar-blob overflow-hidden border-4 border-white shadow-2xl relative z-10 mx-auto">
+                    <!-- 头像使用远程链接，如需本地请替换 -->
+                    <img src="https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31ifdvho4g86g49c50b48b475heu4psg?imageView2/2/w/540/format/webp|imageMogr2/strip2" 
+                         alt="Hannah Profile" class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
+                </div>
+                <div class="absolute -bottom-2 -right-2 bg-white p-2 rounded-full shadow-md text-xl animate-pulse">✨</div>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-bold text-stone-800 mb-6 font-serif-sc leading-tight">
+                Global AI Talent Partner<br>
+                <span class="text-3xl md:text-4xl text-stone-400 font-normal mt-2 block">连接顶尖大脑，探索广阔世界</span>
+            </h1>
+
+            <p class="text-lg text-stone-500 max-w-3xl mx-auto mb-10 leading-relaxed">
+                “更喜欢28岁的我，比起18岁。<br>
+                可以随时去爱，勇敢爱，永远年轻，永远热泪盈眶。”<br>
+                <span class="text-sm mt-4 block opacity-80 font-serif-sc text-stone-400">
+                    —— Hannah Huang (INFJ)
+                </span>
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="glass-tag px-4 py-2 rounded-full text-stone-600 text-sm font-semibold cursor-default">🦄 AI独角兽 HRBP</span>
+                <span class="glass-tag px-4 py-2 rounded-full text-stone-600 text-sm font-semibold cursor-default">🎓 JHU & PSU 科班</span>
+                <span class="glass-tag px-4 py-2 rounded-full text-stone-600 text-sm font-semibold cursor-default">🧘‍♀️ RYT200 瑜伽师</span>
+                <span class="glass-tag px-4 py-2 rounded-full text-stone-600 text-sm font-semibold cursor-default">🚀 连续创业者</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Journey (Timeline with Richer Content) -->
+    <section id="journey" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-orange-500 font-bold tracking-widest text-sm uppercase">Career Path</span>
+                <h2 class="text-3xl font-bold font-serif-sc text-stone-800 mt-2">从硅谷猎头到独角兽操盘手</h2>
+            </div>
+
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+                
+                <!-- Zhipu AI -->
+                <div class="relative z-10 mb-12 md:flex justify-between items-center w-full">
+                    <div class="order-1 md:w-5/12 md:text-right">
+                        <span class="text-orange-500 font-bold text-sm block mb-1">2024.11 - Present</span>
+                        <h3 class="text-xl font-bold text-stone-800">智谱华章 (Zhipu AI)</h3>
+                        <p class="text-stone-500 text-sm">Senior HRBP | 北京</p>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-orange-500 shadow-xl w-8 h-8 rounded-full border-4 border-white md:mx-auto my-4 md:my-0"></div>
+                    <div class="order-1 md:w-5/12 bg-stone-50 p-6 rounded-xl hover-card border-l-4 border-orange-400">
+                        <h4 class="font-bold text-stone-800 mb-2">大模型独角兽的核心支持</h4>
+                        <ul class="text-sm text-stone-600 space-y-2 list-disc list-inside">
+                            <li>支持200+人核心AI团队(LLM/多模态/Infra)，人才密度极高。</li>
+                            <li><strong>精准猎聘：</strong>完成38+社招及50+校招Offer，覆盖核心算法与产品。</li>
+                            <li><strong>上市合规：</strong>参与IPO前组织架构调整、合规体系建设及外包管理。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Alibaba (Updated with specific content) -->
+                <div class="relative z-10 mb-12 md:flex justify-between items-center w-full">
+                    <div class="order-1 md:w-5/12 md:text-right md:order-last">
+                        <span class="text-blue-500 font-bold text-sm block mb-1">2023.02 - 2024.08</span>
+                        <h3 class="text-xl font-bold text-stone-800">Alibaba AIDC</h3>
+                        <p class="text-stone-500 text-sm">高级国际招聘专员 | 杭州</p>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full border-4 border-white md:mx-auto my-4 md:my-0"></div>
+                    <div class="order-1 md:w-5/12 bg-stone-50 p-6 rounded-xl hover-card border-l-4 border-blue-400 md:text-right group">
+                        <!-- Image from Index 25 -->
+                        <div class="h-32 mb-4 overflow-hidden rounded-lg">
+                            <img src="images/25_从阿里国际数字商业集团毕业啦_1.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <h4 class="font-bold text-stone-800 mb-2">从0到1搭建AI Business团队</h4>
+                        <p class="text-xs text-stone-500 mb-2 italic">
+                            “如果对自己在做的事情很笃定，会觉得每天工作12小时都不会觉得累，像打了鸡血...”
+                        </p>
+                        <ul class="text-sm text-stone-600 space-y-2 list-disc list-inside" dir="rtl">
+                            <li>组建200+人AI团队，探索全球AI人才布局与激励。</li>
+                            <li>深度参与全球高校人才储备，链接清北复交及常春藤。</li>
+                            <li>在“丛林法则”中保持清醒，做正确的事，做有温度的HR。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tencent -->
+                <div class="relative z-10 mb-12 md:flex justify-between items-center w-full">
+                    <div class="order-1 md:w-5/12 md:text-right">
+                        <span class="text-purple-500 font-bold text-sm block mb-1">2021.05 - 2023.01</span>
+                        <h3 class="text-xl font-bold text-stone-800">Tencent</h3>
+                        <p class="text-stone-500 text-sm">国际招聘专家 | 西雅图</p>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-purple-500 shadow-xl w-8 h-8 rounded-full border-4 border-white md:mx-auto my-4 md:my-0"></div>
+                    <div class="order-1 md:w-5/12 bg-stone-50 p-6 rounded-xl hover-card border-l-4 border-purple-400">
+                        <h4 class="font-bold text-stone-800 mb-2">游戏与AI的跨界猎手</h4>
+                        <ul class="text-sm text-stone-600 space-y-2 list-disc list-inside">
+                            <li>负责天美工作室(TiMi)及西雅图AI Lab招聘，引入10+高管人才。</li>
+                            <li><strong>薪酬设计：</strong>更新腾讯美国PhD薪酬架构，确保北美竞争力。</li>
+                            <li><strong>数据驱动：</strong>优化流程，初试通过率提升20%，招聘效率提升25%。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <!-- Intellipro & Education & Founder -->
+                 <div class="relative z-10 mb-12 md:flex justify-between items-center w-full">
+                    <div class="order-1 md:w-5/12 md:text-right md:order-last">
+                        <span class="text-gray-500 font-bold text-sm block mb-1">2014 - 2021</span>
+                        <h3 class="text-xl font-bold text-stone-800">Silicon Valley & Education</h3>
+                        <p class="text-stone-500 text-sm">早期经历</p>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-8 h-8 rounded-full border-4 border-white md:mx-auto my-4 md:my-0"></div>
+                    <div class="order-1 md:w-5/12 bg-stone-50 p-6 rounded-xl hover-card border-l-4 border-gray-400 md:text-right">
+                        <h4 class="font-bold text-stone-800 mb-2">科班背景与创业基因</h4>
+                        <p class="text-sm text-stone-600 mb-2">
+                            <strong>JHU硕士 & PSU本科:</strong> 主修劳资关系与HR管理，辅修经济学。
+                        </p>
+                         <p class="text-sm text-stone-600">
+                            <strong>Intellipro (硅谷):</strong> 服务Google/Meta等巨头。<br>
+                            <span class="text-orange-600 font-bold">✨ 创业彩蛋:</span> 北美火锅品牌“咕咚”联合创始人，负责商业落地与成本控制。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section (Enhanced with SPHRi & Psychology details) -->
+    <section id="expertise" class="py-20 bg-[#f8f9fa]">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-bold tracking-widest text-sm uppercase">Core Competencies</span>
+                <h2 class="text-3xl font-bold font-serif-sc text-stone-800 mt-2">不仅是证书，更是沉淀</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- SPHRi (Index 1) -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-globe text-8xl text-blue-500"></i>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6">
+                        <i class="fas fa-certificate text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-3">SPHRi 国际高级HR专家</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed mb-4">
+                        "不管处于什么样的环境，做一个不断学习，深入了解业务，推动问题解决，不是试图去证明自己价值的温暖的人很重要。"
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-stone-100 px-2 py-1 rounded">全球认证</span>
+                        <span class="text-xs bg-stone-100 px-2 py-1 rounded">业务伙伴</span>
+                    </div>
+                </div>
+
+                <!-- Psychology (Index 9) -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-brain text-8xl text-purple-500"></i>
+                    </div>
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-6">
+                        <i class="fas fa-heart text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-3">心理咨询师</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed mb-4">
+                        非科班3个月0基础利用零碎时间拿下证书。保持热爱，心理学让我更了解自己，也更理解他人。这份收获远超一张证书！
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-stone-100 px-2 py-1 rounded">同理心</span>
+                        <span class="text-xs bg-stone-100 px-2 py-1 rounded">高敏感赋能</span>
+                    </div>
+                </div>
+
+                <!-- Business Acumen -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover-card relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-chart-line text-8xl text-green-500"></i>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-6">
+                        <i class="fas fa-rocket text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-3">商业敏锐度</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed mb-4">
+                        前餐饮品牌联合创始人背景，让我能以Owner心态思考HR ROI。在AI浪潮中，始终关注组织效率与人效比。
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-stone-100 px-2 py-1 rounded">Co-founder经历</span>
+                        <span class="text-xs bg-stone-100 px-2 py-1 rounded">战略思维</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part 1: Sports (Active Soul - Updated with specific content) -->
+    <section id="sports" class="py-20 bg-white border-t border-stone-100">
+        <div class="max-w-7xl mx-auto px-4">
+             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <span class="text-green-600 font-bold tracking-widest text-sm uppercase">Active Soul</span>
+                    <h2 class="text-4xl font-bold font-serif-sc text-stone-800 mt-2">Dopamine Chaser</h2>
+                </div>
+                <p class="text-stone-400 text-sm max-w-md text-right md:text-right mt-2">
+                    "Work Hard, Play Harder. 顶峰见 Bro!"
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+                
+                <!-- Tennis (Index 28) -->
+                <div class="md:col-span-2 md:row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm">
+                    <img src="images/28_杭州网球🎾｜Lovegame_1.jpg" 
+                         class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Tennis">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-2xl font-bold">Tennis @Hangzhou</h3>
+                        <p class="text-stone-200 text-sm mt-1">属于网球的夏天。Lovegame网球俱乐部，挥拍是最好的解压。</p>
+                    </div>
+                </div>
+
+                <!-- Yoga (Index 19) -->
+                <div class="md:col-span-1 md:row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm">
+                    <img src="images/19_大厂离职在巴厘岛瑜伽学校毕业了_瑜伽老师_1.jpg" 
+                         class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Yoga">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold">RYT 200</h3>
+                        <p class="text-stone-200 text-xs mt-1">House of OM 毕业。唯有热爱可抵挡一切。</p>
+                    </div>
+                </div>
+
+                <!-- Skiing (Index 14) -->
+                <div class="md:col-span-1 md:row-span-1 group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm">
+                    <img src="images/14_滑雪日常__崇礼太舞小镇_1.jpg" 
+                         class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Skiing">
+                    <div class="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-lg shadow">
+                        <span class="text-xs font-bold text-blue-900">崇礼太舞 ❄️</span>
+                    </div>
+                </div>
+
+                <!-- Hiking (Replaced Diving - Index 13) -->
+                <div class="md:col-span-1 md:row-span-1 group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm">
+                    <img src="images/13_【北京初春徒步攻略｜京郊石佛岭10km】_1.jpg" 
+                         class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Hiking" style="object-position: center;">
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-green-900/80 to-transparent">
+                        <p class="text-xs text-white">京郊石佛岭徒步 10km</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 flex justify-center space-x-4 overflow-x-auto pb-4 hide-scrollbar text-stone-500 text-sm">
+                <span class="border border-stone-200 px-4 py-1 rounded-full bg-white whitespace-nowrap">🧘‍♀️ 周末普拉提打卡</span>
+                <span class="border border-stone-200 px-4 py-1 rounded-full bg-white whitespace-nowrap">🏃‍♀️ 五四大街 City Walk</span>
+                <span class="border border-stone-200 px-4 py-1 rounded-full bg-white whitespace-nowrap">🤿 菲律宾薄荷岛潜水</span>
+                <span class="border border-stone-200 px-4 py-1 rounded-full bg-white whitespace-nowrap">🧗‍♀️ 徒步爱好者</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part 2: Travel (Global Nomad - Richer Descriptions) -->
+    <section id="travel" class="py-20 bg-stone-900 text-stone-200 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="flex items-center gap-4 mb-16">
+                <div class="w-12 h-1 bg-orange-500"></div>
+                <div>
+                    <span class="text-orange-400 font-bold tracking-widest text-sm uppercase">Global Footprints</span>
+                    <h2 class="text-4xl font-bold font-serif-sc text-white mt-1">Travel Across World</h2>
+                </div>
+            </div>
+
+            <!-- Horizontal Gallery -->
+            <div class="flex overflow-x-auto pb-12 gap-8 hide-scrollbar px-4 snap-x snap-mandatory">
+                
+                <!-- Japan (Index 16) -->
+                <div class="flex-shrink-0 w-72 snap-center polaroid transform rotate-1 hover:rotate-0">
+                    <div class="h-64 overflow-hidden mb-4 bg-gray-100">
+                        <img src="images/16_京都奈良自由行一篇攻略就够了_1.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-stone-800">Japan 🇯🇵</h4>
+                    <p class="text-xs text-stone-500 mt-1">京都Citywalk，在古老与现代中穿梭。</p>
+                </div>
+
+                <!-- Tibet (Index 7) -->
+                <div class="flex-shrink-0 w-72 snap-center polaroid transform -rotate-2 hover:rotate-0">
+                    <div class="h-64 overflow-hidden mb-4 bg-gray-100">
+                        <img src="images/7_第一次进藏必看！这些坑我替你踩过了_1.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-stone-800">Tibet 🏔️</h4>
+                    <p class="text-xs text-stone-500 mt-1">离太阳最近的地方，第一次进藏的震撼。</p>
+                </div>
+
+                <!-- Seattle (Index 42) -->
+                <div class="flex-shrink-0 w-72 snap-center polaroid transform rotate-2 hover:rotate-0">
+                    <div class="h-64 overflow-hidden mb-4 bg-gray-100">
+                        <img src="images/42_去一个有风的地方_1.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-stone-800">Seattle 🇺🇸</h4>
+                    <p class="text-xs text-stone-500 mt-1">Meydenbauer Bay Park，我在等风也在等你。</p>
+                </div>
+
+                <!-- Seattle Park (Replaced Maldives - Index 42 duplicate or related) -->
+                <!-- Let's use Index 41 "去一个有风的地方" image 2 as another Seattle vibe or similar -->
+                <div class="flex-shrink-0 w-72 snap-center polaroid transform -rotate-1 hover:rotate-0">
+                    <div class="h-64 overflow-hidden mb-4 bg-gray-100">
+                        <img src="images/42_去一个有风的地方_2.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-stone-800">Windy Place 🍃</h4>
+                    <p class="text-xs text-stone-500 mt-1">去一个有风的地方，感受自然的呼吸。</p>
+                </div>
+
+                 <!-- Beijing (Index 3) -->
+                 <div class="flex-shrink-0 w-72 snap-center polaroid transform rotate-1 hover:rotate-0">
+                    <div class="h-64 overflow-hidden mb-4 bg-gray-100">
+                        <img src="images/3_北平的秋—五四大街_1.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-stone-800">Beijing 🇨🇳</h4>
+                    <p class="text-xs text-stone-500 mt-1">五四大街的黄昏，追一场限定晚秋。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part 3: Lifestyle & Muse (Updated details) -->
+    <section id="life" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-purple-500 font-bold tracking-widest text-sm uppercase">Muse & Life</span>
+                <h2 class="text-4xl font-bold font-serif-sc text-stone-800 mt-2">文艺·萌宠·生活</h2>
+                <p class="text-stone-400 mt-2">“喜欢的东西依旧喜欢，但是不一定要拥有。”</p>
+            </div>
+
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                
+                <!-- Painting (Index 37) -->
+                <div class="break-inside-avoid bg-stone-50 rounded-2xl overflow-hidden hover-card">
+                    <img src="images/37_海底星空｜杭州周末绘画_1.jpg" class="w-full">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-blue-500">
+                            <i class="fas fa-palette"></i>
+                            <span class="text-xs font-bold uppercase">Painting</span>
+                        </div>
+                        <h4 class="font-bold text-stone-800">油画处女作：海底星空</h4>
+                        <p class="text-sm text-stone-500 mt-2">生命中真正重要的不是你遭遇了什么，而是你记住了哪些事，又是如何铭记的。</p>
+                    </div>
+                </div>
+
+                <!-- Rainy Day (Index 29) -->
+                <div class="break-inside-avoid bg-stone-50 rounded-2xl overflow-hidden hover-card">
+                    <img src="images/29_杭州周末下雨天活动_1.jpg" class="w-full">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-stone-500">
+                            <i class="fas fa-cloud-rain"></i>
+                            <span class="text-xs font-bold uppercase">Rainy Day</span>
+                        </div>
+                        <h4 class="font-bold text-stone-800">雨天与蜡烛</h4>
+                        <p class="text-sm text-stone-500 mt-2">“我完全，而绝对的，主持着我。” 手作蜡烛，治愈阴雨连绵的周末。</p>
+                    </div>
+                </div>
+
+                <!-- Boating (Replaced Cat - Index 6) -->
+                <div class="break-inside-avoid bg-stone-50 rounded-2xl overflow-hidden hover-card">
+                    <img src="images/6_让我们荡起双桨_1.jpg" class="w-full">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-blue-500">
+                            <i class="fas fa-water"></i>
+                            <span class="text-xs font-bold uppercase">Life</span>
+                        </div>
+                        <h4 class="font-bold text-stone-800">北海公园·荡起双桨</h4>
+                        <p class="text-sm text-stone-500 mt-2">让我们荡起双桨，小船儿推开波浪。在忙碌的生活中偷得浮生半日闲。</p>
+                    </div>
+                </div>
+
+                <!-- Concert (Index 12) -->
+                <div class="break-inside-avoid bg-stone-50 rounded-2xl overflow-hidden hover-card">
+                    <img src="images/12_“万物安生时”李健北京演唱会_1.jpg" class="w-full">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-purple-600">
+                            <i class="fas fa-music"></i>
+                            <span class="text-xs font-bold uppercase">Concert</span>
+                        </div>
+                        <h4 class="font-bold text-stone-800">李健“万物安生时”</h4>
+                        <p class="text-sm text-stone-500 mt-2">喜欢李健老师的第十年。日与月，沙和尘，都同在。</p>
+                    </div>
+                </div>
+
+                <!-- Handmade Candles (Replaced Music - Index 45) -->
+                <div class="break-inside-avoid bg-stone-50 rounded-2xl overflow-hidden hover-card">
+                    <img src="images/45_西雅图冬日室内活动｜香薰蜡烛制作_1.jpg" class="w-full">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-orange-600">
+                            <i class="fas fa-fire"></i>
+                            <span class="text-xs font-bold uppercase">Handmade</span>
+                        </div>
+                        <h4 class="font-bold text-stone-800">香薰蜡烛制作</h4>
+                        <p class="text-sm text-stone-500 mt-2">有手就会做的蜡烛，温暖了西雅图的冬天。点上喜欢的蜡烛，被治愈了的美好一天。</p>
+                    </div>
+                </div>
+
+                <!-- Co-founder Story (Keep as special highlight) -->
+                <div class="break-inside-avoid bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl overflow-hidden hover-card text-white">
+                    <div class="p-8 text-center">
+                        <i class="fas fa-utensils text-4xl mb-4 text-white/80"></i>
+                        <h4 class="font-bold text-xl mb-2">My Startup Story</h4>
+                        <p class="text-sm opacity-90 mb-4">
+                            曾是北美外卖火锅品牌“咕咚”的联合创始人。那段经历让我明白，商业不仅仅是数字，更是关于“人”的连接。
+                        </p>
+                        <span class="text-xs border border-white/40 px-3 py-1 rounded-full">Business Acumen</span>
+                    </div>
+                </div>
+
+                <!-- Orange Picking (Replaced Dog - Index 36) -->
+                <div class="break-inside-avoid bg-stone-50 rounded-2xl overflow-hidden hover-card">
+                    <img src="images/36_杭州秋天—摘橘子_1.jpg" class="w-full">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-orange-500">
+                            <i class="fas fa-leaf"></i>
+                            <span class="text-xs font-bold uppercase">Nature</span>
+                        </div>
+                        <h4 class="font-bold text-stone-800">杭州秋天—摘橘子</h4>
+                        <p class="text-sm text-stone-500 mt-2">喜欢秋天可以有100个理由，其中一个一定是丰收。离城市很近离自然也很近。</p>
+                    </div>
+                </div>
+
+                <!-- Fashion (Index 10) -->
+                <div class="break-inside-avoid bg-stone-50 rounded-2xl overflow-hidden hover-card">
+                    <!-- Corrected: Index 10 is '小个子春日通勤穿搭'. Updated image name to match this logic. -->
+                    <img src="images/10_小个子春日通勤穿搭_海淀_AI_从业者_1.jpg" class="w-full" style="aspect-ratio: 3/4; object-fit: cover;">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-stone-500">
+                            <i class="fas fa-tshirt"></i>
+                            <span class="text-xs font-bold uppercase">OOTD</span>
+                        </div>
+                        <h4 class="font-bold text-stone-800">小个子通勤穿搭</h4>
+                        <p class="text-sm text-stone-500 mt-2">海淀AI从业者的日常 Look，干练不失温柔。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 性格总结 (INFJ Personality) -->
+    <section id="personality" class="py-24 bg-[#fdfcf8] relative overflow-hidden border-t border-stone-100">
+        <div class="max-w-5xl mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-purple-500 font-bold tracking-widest text-sm uppercase">Personality Code</span>
+                    <h2 class="text-5xl font-bold font-serif-sc text-stone-800 mt-2 mb-6">INFJ 提倡者</h2>
+                    <p class="text-stone-500 text-lg leading-relaxed mb-8">
+                        我是那个在<strong class="text-stone-800">现实世界里打怪升级</strong>（AI/SPHRi），又在<strong class="text-stone-800">精神世界里流浪</strong>（巴厘岛/Liber Live）的矛盾统一体。
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mt-1">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-stone-800">理想主义实干家</h4>
+                                <p class="text-stone-500 text-sm mt-1">从不满足于现状。为了寻找答案，敢于从大厂裸辞去留学瑜伽；为了专业精进，利用碎片时间考取心理证书。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mt-1">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-stone-800">世界公民 (Global Soul)</h4>
+                                <p class="text-stone-500 text-sm mt-1">无论是西雅图的雨、京都的鹿，还是马尔代夫的海，我都能迅速建立深度联结。</p>
+                            </div>
+                        </div>
+                        <!-- Added dating/partner requirement highlight from Index 8 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 mt-1">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-stone-800">真诚是必杀技</h4>
+                                <p class="text-stone-500 text-sm mt-1">好的关系是双向奔赴，是共同成长。愿遇见那个能一起看遍世界繁华，也能携手面对生活琐碎的伙伴。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧性格关键词视觉图 -->
+                <div class="relative h-[450px] bg-white rounded-[40px] border border-stone-100 p-8 flex flex-col justify-center items-center shadow-lg transform rotate-2">
+                     <div class="z-10 text-center">
+                         <div class="text-6xl mb-2">🧘‍♀️</div>
+                         <h3 class="text-2xl font-bold text-stone-800">Inner Peace</h3>
+                         <p class="text-stone-400 text-sm">Target & Balance</p>
+                     </div>
+                     <div class="absolute top-10 left-10 bg-stone-50 px-4 py-2 rounded-xl text-stone-600 text-sm animate-pulse">#终身学习</div>
+                     <div class="absolute bottom-20 left-12 bg-purple-500 text-white px-4 py-2 rounded-xl text-sm">#INFJ</div>
+                     <div class="absolute bottom-10 right-12 bg-stone-50 px-4 py-2 rounded-xl text-stone-600 text-sm">#审美在线</div>
+                     <div class="absolute top-20 right-8 bg-blue-50 px-4 py-2 rounded-xl text-stone-600 text-sm">#独立女性</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-12">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-2xl text-white font-serif-sc mb-4">Let's create something meaningful.</h2>
+            <div class="flex justify-center gap-4 mb-8">
+                <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-white hover:text-stone-900 transition"><i class="fab fa-xiaohongshu"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-white hover:text-stone-900 transition"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-white hover:text-stone-900 transition"><i class="far fa-envelope"></i></a>
+            </div>
+            <p class="text-xs text-stone-600">© 2023 Hahaha 小姐姐. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
